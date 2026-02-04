@@ -16,4 +16,10 @@ fun main() {
         else -> "D"
     }
     println("Grade kamu: $grade")
+
+    // panggil di dalam main()
+    println("Status: ${calculateStatus(score)}")
 }
+
+//Tulis DI LUAR main()
+fun calculateStatus(score: Int) = if (score > 75) "Lulus" else "Tidak Lulus"
