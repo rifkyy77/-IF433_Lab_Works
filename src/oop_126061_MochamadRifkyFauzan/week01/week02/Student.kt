@@ -1,18 +1,29 @@
 package oop_126061_MochamadRifkyFauzan.week01.week02
 
-class Student ( val name: String, val nim: String, val gpa: Double = 0.0, val major: String, ){
+class Student(
+    val name: String,
+    val nim: String,
+    val major: String,
+    val gpa: Double = 0.0
+) {
+
     init {
         // validasi sederhana: cek panjang NIM
-        if (nim.length !=5) {
-            println("WARNING: Objektercipta dengan NIM ($nim) yang tidak valid!")
+        if (nim.length != 5) {
+            println("WARNING: Objek tercipta dengan NIM ($nim) yang tidak valid!")
             println("Data Mahasiswa $name mungkin akan bermasalah di sistem.")
         } else {
-            println("Log: objek tudent $name berhasil dialokasikan di memory.")
+            println("Log: objek student $name berhasil dialokasikan di memory.")
         }
     }
-    // secondary Constructor
-    // wajib memanggil primary constructor menggunakan 'this()'
-    constructor(name: String, nim:String) : this(name, nim, major = "Non-Matriculated") {
+
+    // secondary constructor
+    constructor(name: String, nim: String) : this(
+        name,
+        nim,
+        "Non-Matriculated",
+        0.0
+    ) {
         println("LOG: Menggunakan constructor jalur utama (Tanpa Jurusan).")
     }
 }
