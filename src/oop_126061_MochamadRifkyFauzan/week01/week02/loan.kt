@@ -1,5 +1,7 @@
 package oop_126061_MochamadRifkyFauzan.week01.week02
 
+import java.util.Scanner
+
 class Loan(
     val bookTitle: String,
     val borrower: String,
@@ -32,4 +34,32 @@ class Loan(
         println("Durasi : $loanDuration hari")
         println("Total Denda : Rp ${calculateFine()}")
     }
+}
+
+fun main() {
+
+    val input = Scanner(System.`in`)
+
+    println("=== Sistem Pencatat Peminjaman Buku ===")
+
+    print("Judul Buku : ")
+    val title = input.nextLine()
+
+    print("Nama Peminjam : ")
+    val borrower = input.nextLine()
+
+    print("Lama Pinjam (hari) : ")
+    var duration = input.nextInt()
+
+    // validasi IF (tidak boleh minus)
+    if (duration < 0) {
+        println("Durasi minus terdeteksi, otomatis diubah menjadi 1 hari.")
+        duration = 1
+    }
+
+    // buat objek Loan
+    val dataLoan = Loan(title, borrower, duration)
+
+    println()
+    dataLoan.showSummary()
 }
