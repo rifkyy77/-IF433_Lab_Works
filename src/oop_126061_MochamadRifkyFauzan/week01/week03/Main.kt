@@ -4,7 +4,7 @@ fun main() {
 
     val e = Employee("Budi")
 
-    e.salary = -1000 // harusnya print error
+    e.salary = -1000
     e.salary = 5000000
     println("Gaji: ${e.salary}")
 
@@ -15,10 +15,10 @@ fun main() {
 
     val w = Weapon("Excalibur", 300)
 
-    w.damage = -50      // harus gagal
+    w.damage = -50
     println("Damage sekarang: ${w.damage}")
 
-    w.damage = 9999     // harus dipaksa jadi 1000
+    w.damage = 9999
     println("Damage sekarang: ${w.damage}")
 
     println("Tier senjata: ${w.tier}")
