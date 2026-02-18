@@ -13,13 +13,18 @@ fun main() {
     println("pajak yang harus dibayar: ${e.tax}")
 
 
+    // ===== TEST WEAPON =====
     val w = Weapon("Excalibur", 300)
-
     w.damage = -50
     println("Damage sekarang: ${w.damage}")
-
     w.damage = 9999
     println("Damage sekarang: ${w.damage}")
-
     println("Tier senjata: ${w.tier}")
+
+    // ===== TEST PLAYER =====
+    val player = Player("Rifky")
+    player.addXp(50)   // masih level 1
+    println("Level sekarang: ${player.level}")
+    player.addXp(60)   // total 110 -> harus Level Up ke 2
+    println("Level sekarang: ${player.level}")
 }
