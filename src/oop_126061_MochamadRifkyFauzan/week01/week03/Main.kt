@@ -23,8 +23,8 @@ fun main() {
 
     // ===== TEST PLAYER =====
     val player = Player("Rifky")
-    player.addXp(50)   // masih level 1
+    player.addXp(50)
     println("Level sekarang: ${player.level}")
-    player.addXp(60)   // total 110 -> harus Level Up ke 2
+    player.addXp(60)
     println("Level sekarang: ${player.level}")
 }
