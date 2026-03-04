@@ -1,6 +1,7 @@
 package oop_126061_MochamadRifkyFauzan.week01.week05
 
 fun main() {
+
     val dosen1 = Dosen("pak alex", "0123456")
     val admin1 = Admin("bu siti")
 
@@ -20,6 +21,7 @@ fun main() {
                 pegawai.doAdminWork()
             }
         }
+
         println("---------------------")
     }
 
@@ -39,5 +41,10 @@ fun main() {
 
     for (payment in payments) {
         payment.processPayment(75000.0)
+
+        if (payment is EWallet) {
+            payment.topUp(50000.0)
+            payment.processPayment(75000.0)
+        }
     }
 }
