@@ -29,4 +29,15 @@ fun main() {
     println("Luas Persegi: ${math.hitungLuas(4)}")
     println("Luas Persegi Panjang: ${math.hitungLuas(5, 3)}")
     println("Luas Lingkaran: ${math.hitungLuas(7.0)}")
+
+    println("=== SISTEM PEMBAYARAN ===")
+
+    val ewallet = EWallet("Rifky", 50000.0)
+    val creditCard = CreditCard("Rifky", 100000.0)
+
+    val payments: List<PaymentMethod> = listOf(ewallet, creditCard)
+
+    for (payment in payments) {
+        payment.processPayment(75000.0)
+    }
 }
