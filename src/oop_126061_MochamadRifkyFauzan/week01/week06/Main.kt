@@ -24,4 +24,10 @@ fun main() {
 
     lamp.turnOn()
     lamp.turnOff()
+
+    val speaker = SmartSpeaker("SP01", "Google Nest")
+
+    speaker.turnOn()
+    speaker.playMusic("Perfect - Ed Sheeran")
+    speaker.turnOff()
 }
