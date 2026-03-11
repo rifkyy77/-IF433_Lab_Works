@@ -3,10 +3,11 @@ package oop_126061_MochamadRifkyFauzan.week01.week06
 // Fungsi ini Decoupled! Tidak Peduli kelas aslinya apa
 fun processCheckout(method: PaymentMethod, amount: Double) {
     println("-> Memulai checkout...")
-            method.pay(amount) // Dynamic polymorphism in action
+    method.pay(amount) // Dynamic polymorphism in action
 }
 
 fun main() {
+
     val myWatch = Smartwatch()
     myWatch.showTime()
 
@@ -20,14 +21,33 @@ fun main() {
     processCheckout(pay1, 50000.0)
     processCheckout(pay2, 150000.0)
 
-    val lamp = SmartLamp("L01", "Lampu Ruang Tamu")
+    println("\n=== TESTING SMART HOME DEVICES ===")
+
+    val lamp = SmartLamp("L01", "Ruang Tamu")
+    val speaker = SmartSpeaker("SP01", "Google Nest Dapur")
+    val cctv = SmartCCTV("C01", "Ezviz Garasi")
 
     lamp.turnOn()
     lamp.turnOff()
 
-    val speaker = SmartSpeaker("SP01", "Google Nest")
-
     speaker.turnOn()
     speaker.playMusic("Perfect - Ed Sheeran")
     speaker.turnOff()
+
+    cctv.turnOn()
+    cctv.turnOff()
+
+    println("\n=== TESTING SMART HOME HUB ===")
+
+    val hub = SmartHomeHub()
+
+    hub.addDevice(lamp)
+    hub.addDevice(speaker)
+    hub.addDevice(cctv)
+
+    println("\nMematikan semua perangkat Switchable...")
+    hub.turnOffAllSwitches()
+
+    println("\nMengaktifkan Security Mode...")
+    hub.activateSecurityMode()
 }
