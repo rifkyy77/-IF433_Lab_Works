@@ -19,4 +19,9 @@ fun main() {
     println("\n=== TESTING CHECKOUT ===")
     processCheckout(pay1, 50000.0)
     processCheckout(pay2, 150000.0)
+
+    val lamp = SmartLamp("L01", "Lampu Ruang Tamu")
+
+    lamp.turnOn()
+    lamp.turnOff()
 }
