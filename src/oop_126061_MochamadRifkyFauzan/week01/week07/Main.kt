@@ -30,6 +30,17 @@ fun main() {
     println("\n=== TEST SEALED CLASS")
     val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik")
 
+    println("\n=== TEST GAME MANAGER ===")
+    GameManager.startGame()
+    GameManager.startGame()
+
+    println("\n=== TEST RARITY ===")
+    println("Legendary Drop Chance: ${ItemRarity.LEGENDARY.dropChance}")
+
+    println("\n=== TEST GAME ITEM ===")
+    val item = GameItem("Pedang Besi", 50, ItemRarity.RARE)
+    println(item)
+
     // ERROR: 'WHEN' expression must be exhaustive
     val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
