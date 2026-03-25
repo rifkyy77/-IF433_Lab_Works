@@ -61,6 +61,13 @@ fun main() {
     println(event3)
     println(event4)
 
+    println("\n=== TEST EVENT PROCESSOR ===")
+
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(GameItem("Pedang Baja", 30, ItemRarity.RARE)))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
+
     // ERROR: 'WHEN' expression must be exhaustive
     val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
