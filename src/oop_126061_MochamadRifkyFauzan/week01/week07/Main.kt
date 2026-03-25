@@ -49,6 +49,18 @@ fun main() {
     val epic = Weapon.forgeEpicSword()
     println("Epic: ${epic.item.name}, Damage: ${epic.item.damage}, Durability: ${epic.durability}")
 
+    println("\n=== TEST BATTLE STATE ===")
+
+    val event1 = BattleState.MonsterEncounter("Goblin")
+    val event2 = BattleState.LootDropped(GameItem("Pedang", 10, ItemRarity.COMMON))
+    val event3 = BattleState.GameOver("HP habis")
+    val event4 = BattleState.SafeZone
+
+    println(event1)
+    println(event2)
+    println(event3)
+    println(event4)
+
     // ERROR: 'WHEN' expression must be exhaustive
     val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
