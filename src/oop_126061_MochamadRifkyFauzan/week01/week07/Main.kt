@@ -21,4 +21,10 @@ fun main() {
     println(data1) // otomatis readable format
     println("sama? ${data1 == data2}") // True
 
+    val data3 = data1.copy(age = 23)
+    println("Hasil Copy: $data3")
+
+    val (userName, userAge) = data1 // Destructuring Declaration
+    println("Destructured: $userName berumur $userAge")
+
 }
