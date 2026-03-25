@@ -31,9 +31,10 @@ fun main() {
     val response: ApiResponse = ApiResponse.Success("Data berhasil ditarik")
 
     // ERROR: 'WHEN' expression must be exhaustive
-    val uiMessage = when (response) {
+    val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
         is ApiResponse.Error -> "Munculkan Alert: ${response.message}"
+        is ApiResponse.Loading -> "Tampilkan Spiner:"
     }
 
 }
