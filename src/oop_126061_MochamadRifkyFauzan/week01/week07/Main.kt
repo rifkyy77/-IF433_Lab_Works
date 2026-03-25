@@ -41,6 +41,14 @@ fun main() {
     val item = GameItem("Pedang Besi", 50, ItemRarity.RARE)
     println(item)
 
+    println("\n=== TEST WEAPON FACTORY ===")
+
+    val starter = Weapon.forgeStarterSword()
+    println("Starter: ${starter.item.name}, Damage: ${starter.item.damage}, Durability: ${starter.durability}")
+
+    val epic = Weapon.forgeEpicSword()
+    println("Epic: ${epic.item.name}, Damage: ${epic.item.damage}, Durability: ${epic.durability}")
+
     // ERROR: 'WHEN' expression must be exhaustive
     val uiMessage = when(response) {
         is ApiResponse.Success -> "Tampilkan: ${response.data}"
