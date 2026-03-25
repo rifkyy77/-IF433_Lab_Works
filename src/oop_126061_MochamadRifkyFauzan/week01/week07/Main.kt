@@ -74,5 +74,8 @@ fun main() {
         is ApiResponse.Error -> "Munculkan Alert: ${response.message}"
         is ApiResponse.Loading -> "Tampilkan Spiner:"
     }
+    println("\n=== SIMULASI GAME MANAGER ===")
 
+    GameManager.startGame()
+    GameManager.startGame()
 }
