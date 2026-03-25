@@ -78,4 +78,18 @@ fun main() {
 
     GameManager.startGame()
     GameManager.startGame()
+
+    println("\n=== SIMULASI RARITY & FACTORY ===")
+
+// 1. Ambil drop chance
+    println("Legendary Drop Chance: ${ItemRarity.LEGENDARY.dropChance}")
+
+// 2. Buat weapon dari factory
+    val starterWeapon = Weapon.forgeStarterSword()
+
+// 3. Tampilkan detail
+    println("Weapon: ${starterWeapon.item.name}")
+    println("Damage: ${starterWeapon.item.damage}")
+    println("Rarity: ${starterWeapon.item.rarity}")
+    println("Durability: ${starterWeapon.durability}")
 }
