@@ -51,4 +51,4 @@ fun main() {
     println("\nMematikan semua perangkat Switchable...")
     hub.turnOffAllSwitches()
 
-}
+} 
