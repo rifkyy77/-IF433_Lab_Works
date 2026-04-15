@@ -17,6 +17,12 @@ fun main() {
             val product = parser.parseProduct(raw)
 
             product?.let {
+
+                when (it) {
+                    is Electronic -> println("${it.name} (Warranty ${it.warrantyMonths})")
+                    is Clothing -> println("${it.name} (Size ${it.size})")
+                }
+
                 parser.checkout(it)
             }
 
