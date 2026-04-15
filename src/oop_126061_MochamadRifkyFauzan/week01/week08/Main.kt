@@ -5,14 +5,14 @@ fun main() {
     val emptyOrder = Order(null, null)
 
     // rantai safe calls yang elegan
-    val destination =  emptyOrder.deliveryDetails?.address?.city?.name?: "kota tidak diketahui"
+    val destination =  emptyOrder.deliveryDetails?.address?.city?.name ?: "kota tidak diketahui"
     println("Tujuan pengiriman: $destination")
 
     println("\n=== TEST LET BLOCK ===")
     val validOrder = Order(null, 250000)
 
-    val receipt = validOrder.totalPrice?.totalPrice?.let { price ->
-        //blok ini hanya jalan jika totalpriceidak null
+    val receipt = validOrder.totalPrice?.let { price ->
+        //blok ini hanya jalan jika totalprice tidak null
         val tax = price * 0.11
         "transaksi valid, harga: Rp$price, pajak: Rp$tax"
     } ?: "transaksi invalid: harga belum di set!"
@@ -37,7 +37,7 @@ fun main() {
     }
 
     val someObject: Any = 100 // tipe aslinya integer
-    // coba cast ke string jika gagal(null). ganti dengan "uknown String"
-    val safeString = someObject as? String ?: "Uknown string"
-    println("Hsil cast + fallback: $safeString")
+    // coba cast ke string jika gagal(null). ganti dengan "unknown String"
+    val safeString = someObject as? String ?: "Unknown string"
+    println("Hasil cast + fallback: $safeString")
 }
