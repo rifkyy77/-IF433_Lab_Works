@@ -8,7 +8,6 @@ fun dispenseKibble(
     require(requestedGram > 0) {
         "Porsi kibble harus lebih dari 0 gr"
     }
-    return availableGram
 
     if (isJammed) {
         throw DispenserJamException()
@@ -30,33 +29,33 @@ fun main() {
             availableGram = currentKibbleStock,
             isJammed = false
         )
+
     } catch (e: DispenserJamException) {
         println("Error dispenser: ${e.message}")
     } catch (e: FoodEmptyException) {
         println("Error stok makanan: ${e.message}")
     } catch (e: Exception) {
         println("Terjadi error umum: ${e.message}")
-    }
-
-    finally {
+    } finally {
         println("Siklus pengecekan dispenser pagi selesai.")
     }
 
     runCatching {
+
         dispenseKibble(
             requestedGram = 30,
             availableGram = 1000,
             isJammed = false
         )
+
+    }.onSuccess { newStock ->
+        currentKibbleStock = newStock
+        println(
+            "Makan sore sukses! Sisa stok kibble: $currentKibbleStock gr"
+        )
+
+    }.onFailure { error ->
+        println("Peringatan ke Pemilik: ${error.message}")
+        println("(Opsional: Berikan chicken jerky secara manual)")
     }
-        .onSuccess { newStock ->
-            currentKibbleStock = newStock
-            println(
-                "Makan sore sukses! Sisa stok kibble: $currentKibbleStock gr"
-            )
-        }
-        .onFailure { error ->
-            println("Peringatan ke Pemilik: ${error.message}")
-            println("(Opsional: Berikan chicken jerky secara manual)")
-        }
 }
