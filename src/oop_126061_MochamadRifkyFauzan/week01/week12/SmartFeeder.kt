@@ -9,4 +9,10 @@ fun dispenseKibble(
         "Porsi kibble harus lebih dari 0 gr"
     }
     return availableGram
+
+    if (isJammed) {
+        throw DispenserJamException()
+    }
+
+
 }
