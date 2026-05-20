@@ -60,9 +60,15 @@ fun main() {
         TradeRecord(3, "SOLUSDT", "Long", 700.0, 120.0)
     )
     saveTrades(trades, "crypto_trades.csv")
+
+    val loadedData = loadTrades("crypto_trades.csv")
+    val totalPnl = loadedData.sumOf {
+        it.pnl
+    }
+        println("=== VALID TRADE DATA ===")
+        loadedData.forEach {
+            println(it)
+        }
+        println("==== TOTAL PnL BERSIH: $totalPnl ====")
 }
 
-val loadedData = loadTrades("crypto_trades.csv")
-val totalPnl = loadedData.sumOf {
-    it.pnl
-}
